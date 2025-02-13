@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14F - ¿Quieres ser mi Valentín?</title>
+
+    <!-- Google Fonts: Dancing Script (romántica) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts: Space Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS (CDN Estable) -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <!-- Estilos personalizados -->
+    <style>
+        /* Clase para aplicar la fuente romántica sólo a los encabezados */
+        .valentine-title {
+            font-family: 'Space Mono', cursive;
+            font-size: larger;
+        }
+    </style>
+</head>
+
+<body class="bg-pink-50 valentine-title flex flex-col items-center justify-center min-h-screen">
+
+    <!-- Contenedor general -->
+    <div class="w-full mx-auto p-4">
+
+        <!-- HOME / GALERÍA -->
+        <div id="home" class="text-center space-y-4">
+            <!-- Sección contenedora: ocupa 90% de la pantalla y se centra -->
+            <section class="w-[90%] mx-auto my-8">
+                <!-- Encabezado de la galería -->
+                <h2 class="text-3xl font-bold text-pink-700 text-center valentine-title">Mini Galería</h2>
+                <p class="text-center text-gray-700 mt-2">
+                    ¡Estos son algunos de nuestros momentos más lindos &lt;3!
+                </p>
+
+                <!-- Grid responsivo -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    <!-- Tarjeta 1 -->
+                    <article
+                        class="relative flex flex-col justify-center overflow-hidden rounded-2xl pb-8 pt-40 w-full h-[400px]">
+                        <img src="1.jpeg" alt="Paris" class="absolute inset-0 h-full w-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+                        <h3 class="z-10 text-2xl font-bold text-white px-4">Ñuñoa</h3>
+                        <p class="z-10 text-sm text-gray-200 px-4">Festival Sin Gluten</p>
+                    </article>
+
+                    <!-- Tarjeta 2 -->
+                    <article
+                        class="relative flex flex-col justify-center overflow-hidden rounded-2xl pb-8 pt-40 w-full h-[400px]">
+                        <img src="2.jpeg" alt="Paris" class="absolute inset-0 h-full w-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+                        <h3 class="z-10 text-2xl font-bold text-white px-4">Horcón</h3>
+                        <p class="z-10 text-sm text-gray-200 px-4">Mini Vacaciones</p>
+                    </article>
+
+                    <!-- Tarjeta 3 -->
+                    <article
+                        class="relative flex flex-col justify-center overflow-hidden rounded-2xl pb-8 pt-40 w-full h-[400px]">
+                        <img src="3.jpeg" alt="Paris" class="absolute inset-0 h-full w-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+                        <h3 class="z-10 text-2xl font-bold text-white px-4">Cajón del Maipo</h3>
+                        <p class="z-10 text-sm text-gray-200 px-4">Cita Improvisada</p>
+                    </article>
+
+                    <!-- Tarjeta 4 -->
+                    <article
+                        class="relative flex flex-col justify-center overflow-hidden rounded-2xl pb-8 pt-40 w-full h-[400px]">
+                        <img src="4.jpeg" alt="Paris" class="absolute inset-0 h-full w-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+                        <h3 class="z-10 text-2xl font-bold text-white px-4">Horcón</h3>
+                        <p class="z-10 text-sm text-gray-200 px-4">Vacaciones</p>
+                    </article>
+
+                    <!-- Tarjeta 5 -->
+                    <article
+                        class="relative flex flex-col justify-center overflow-hidden rounded-2xl pb-8 pt-40 w-full h-[400px]">
+                        <img src="5.jpeg" alt="Paris" class="absolute inset-0 h-full w-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+                        <h3 class="z-10 text-2xl font-bold text-white px-4">Horcón</h3>
+                        <p class="z-10 text-sm text-gray-200 px-4">Vacaciones</p>
+                    </article>
+
+                    <!-- Tarjeta 6 -->
+                    <article
+                        class="relative flex flex-col justify-center overflow-hidden rounded-2xl pb-8 pt-40 w-full h-[400px]">
+                        <img src="6.jpeg" alt="Paris" class="absolute inset-0 h-full w-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+                        <h3 class="z-10 text-2xl font-bold text-white px-4">Maitencillo</h3>
+                        <p class="z-10 text-sm text-gray-200 px-4">Foto Favorita</p>
+                    </article>
+                </div>
+
+                <!-- Botón continuar, centrado -->
+                <div class="mt-6 text-center">
+                    <button class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-6 rounded"
+                        onclick="goToStep(1)">
+                        Continuar
+                    </button>
+                </div>
+            </section>
+        </div>
+        <!-- Fin del Home / Galería -->
+
+        <!-- PASO 1 -->
+        <div id="step-1" class="hidden step active">
+            <div class="max-w-3xl mx-auto my-8 bg-pink-50 rounded-xl shadow-lg p-6 sm:p-8">
+                <!-- Título -->
+                <div class="flex items-center justify-center mb-4">
+                    <h2 class="text-3xl font-bold text-pink-700 valentine-title">Agradecimiento</h2>
+                </div>
+
+                <!-- Contenido principal -->
+                <div class="text-justify text-gray-700 leading-relaxed space-y-4">
+                    <p>
+                        Hola mi querida y amada <strong>Catalina Vargas</strong>, para comenzar, quiero agradecerte por
+                        todo el cariño, compañía y felicidad que me brindas a diario. Eres una persona maravillosa y me
+                        siento muy afortunado de tenerte en mi vida. Te amo mucho y espero que disfrutes de este pequeño
+                        detalle que he preparado para ti con mucho cariño.
+                    </p>
+                    <p>
+                        Gracias por ser mi apoyo incondicional y por siempre estar a mi lado. Tu amor y comprensión
+                        significan el mundo para mí. Cada día a tu lado es un regalo. Aprecio cada momento que
+                        compartimos y todo lo que haces por mí. Tu sonrisa ilumina mis días y tu amor llena mi corazón
+                        de alegría.
+                    </p>
+                    <p>
+                        Eres mi mejor amiga, mi confidente y mi amor. Gracias por todo lo que haces y por ser quien
+                        eres. Estoy agradecido por cada risa, cada abrazo y cada momento que hemos compartido. Eres mi
+                        todo.
+                    </p>
+                    <p>
+                        Tu personalidad y generosidad hacia mí me inspiran a ser una mejor persona cada día.
+                        No hay palabras suficientes para expresar cuánto significas para mí. Te amo más de lo que las
+                        palabras pueden
+                        decir. Eres mi roca, mi refugio, mi cable a tierra y mi mayor alegría a pesar de todo.
+                    </p>
+                    <p>
+                        Gracias por hacer mi vida tan especial y llena de amor. Mil
+                        gracias por todos los momentos que hemos vivido juntos. <br>
+                        <strong>Te Amo con todo mi Corazón</strong>.
+                    </p>
+                    <p class="font-semibold text-center">
+                        <em>Ahora vamos a la siguiente página para continuar.</em>
+                    </p>
+                </div>
+
+                <!-- Botón "Siguiente" -->
+                <div class="mt-6 text-center">
+                    <button
+                        class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring-2 focus:ring-pink-300"
+                        onclick="goToStep(2)">
+                        Siguiente
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Fin PASO 1 -->
+
+        <!-- PASO 2 -->
+        <div id="step-2" class="hidden step">
+            <div class="max-w-3xl mx-auto my-8 bg-pink-50 rounded-xl shadow-lg p-6 sm:p-8">
+                <!-- Encabezado -->
+                <div class="flex items-center justify-center mb-4">
+                    <h2 class="text-3xl font-bold text-pink-700 valentine-title">Carta de Amor</h2>
+                </div>
+
+                <!-- Contenido de la carta -->
+                <div class="text-justify text-gray-700 leading-relaxed space-y-4">
+                    <p>
+                        <span class="font-bold">Querida Catalina,</span><br><br>
+                        Cada salida, cada comida compartida, y cada momento juntos ha sido una gran felicidad para
+                        ambos.
+                    </p>
+                    <p>
+                        Recuerdo con cariño nuestra salida al festival sin gluten y disfrutando al 100%
+                        juntos. Las mini vacaciones en Horcón fueron inolvidables, llenas de risa. Y nunca olvidaré
+                        nuestra mini cita improvisada en Cajón del Maipo (Aún recuerdo que
+                        te hice comer pastas sabiendo que eras celiaca uwu).
+                    </p>
+                    <p>
+                        Cada comidita que hemos compartido ha sido especial porque estaba contigo.
+                        Tu compañía hace que cada momento sea único y maravilloso.
+                    </p>
+                    <p>
+                        Con mucho cariño siempre recuerdo nuestras mini salidas a Horcón, dónde mis papás,
+                        donde disfrutamos muchas puestas de sol que se volvían aún más hermosas a tu lado,
+                        especialmente con una micheladita en el mirador uwu.
+                        Las risas en cada viaje son algo que jamás olvidaré, todo ha sido perfecto.
+                    </p>
+                    <p>
+                        Gracias por ser mi compañera, mi amiga y mi amor. Estoy agradecido por cada momento que hemos
+                        compartido y espero con ansias todos los que están por venir. Eres mi inspiración y mi fuerza de
+                        cada día, y no puedo esperar a seguir viviendo momentos maravillosos contigo.
+                    </p>
+                    <p class="mt-4">
+                        Con todo mi amor,<br>
+                        <em>[Andrés Abarzúa]</em>
+                    </p>
+                </div>
+
+                <!-- Botón Siguiente -->
+                <div class="mt-6 text-center">
+                    <button
+                        class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-6 rounded focus:outline-none focus:ring-2 focus:ring-pink-300"
+                        onclick="goToStep(3)">
+                        Siguiente
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Fin PASO 2 -->
+
+        <!-- PASO 3: Pregunta final (con lógica de "No" insistente) -->
+        <div id="step-3" class="text-center space-y-4 hidden step">
+            <h2 class="text-3xl font-bold text-pink-700 valentine-title">La Pregunta:</h2>
+            <p id="finalQuestion" class="text-xl text-gray-700">
+                ¿Quieres ser mi San Valentín? ❤️
+            </p>
+
+            <!-- Contenedor del contador -->
+            <div class="mt-4">
+                <p class="text-gray-700 text-lg">Faltan:</p>
+                <p id="countdown" class="text-2xl font-bold text-pink-600"></p>
+            </div>
+
+            <!-- Contenedor para el mensaje y la imagen -->
+            <div id="responseMessage" class="hidden mt-4 text-center space-y-4">
+                <p id="responseText" class="text-lg font-semibold text-pink-600"></p>
+                <img id="responseImage" class="mx-auto w-40 h-40 rounded-md shadow-lg" alt="Respuesta" />
+            </div>
+
+            <div id="buttons" class="space-x-4">
+                <button class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded"
+                    onclick="answer('Sí')">
+                    Sí
+                </button>
+                <button id="noButton" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded"
+                    onclick="answer('No')">
+                    No
+                </button>
+            </div>
+        </div>
+
+        <script>
+            // Configura la fecha objetivo (14 de febrero de 2024, zona horaria de Chile)
+            const targetDate = new Date('2025-02-14T00:00:00-03:00'); // Chile tiene UTC-3 en verano
+
+            // Actualiza el contador cada segundo
+            const countdownInterval = setInterval(() => {
+                const now = new Date(); // Fecha y hora actual
+                const difference = targetDate - now; // Diferencia en milisegundos
+
+                // Si la fecha ya pasó, muestra un mensaje final
+                if (difference <= 0) {
+                    document.getElementById('countdown').innerText = "¡Feliz San Valentín! ❤️";
+                    clearInterval(countdownInterval);
+                    return;
+                }
+
+                // Cálculo de días, horas, minutos y segundos
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                // Actualiza el texto del contador
+                document.getElementById('countdown').innerText = `${hours}h ${minutes}m ${seconds}s`;
+            }, 1000);
+        </script>
+
+
+        <!-- PASO 4: Respuesta final (si dice "Sí" o tras varios "No") -->
+        <!-- PASO 4: Respuesta final (si dice "Sí" o tras varios "No") -->
+        <div id="step-4" class="text-center space-y-4 hidden step">
+            <h2 id="final-text" class="text-2xl font-bold text-pink-700 valentine-title"></h2>
+            <img id="finalImage" class="mx-auto w-40 h-40 rounded-md shadow-lg" alt="Respuesta" />
+            <button class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded"
+                onclick="restart()">
+                Volver al Inicio
+            </button>
+        </div>
+        <!-- Fin PASO 4 -->
+
+    </div> <!-- Fin contenedor general -->
+
+    <!-- SCRIPT: Lógica de los "steps" y la pregunta interactiva -->
+    <script>
+        // Control de intentos de "No"
+
+        // Navegar entre secciones (steps)
+        function goToStep(stepNumber) {
+            // Oculta todos los pasos
+            document.querySelectorAll('.step').forEach(el => {
+                el.classList.remove('active'); // Elimina la clase active
+            });
+
+            // Muestra sólo el paso correspondiente
+            const currentStep = document.getElementById(`step-${stepNumber}`);
+            currentStep.classList.add('active'); // Agrega la clase active
+
+            // Desplazarse al inicio de la página
+            window.scrollTo(0, 0); // Vuelve al inicio de la página
+        }
+
+        // Lógica de respuesta "Sí" / "No" en Paso 3
+        // Arreglos de mensajes e imágenes
+        const messages = [
+            "¿Estás segura/o? Me vas a rechazar uwu",
+            "¿De verdad me vas a decir que no potito uwu? 😭",
+            "Amor, piensalo bien uwu 🙏",
+            "me rindo uwu, ya no me kieres",
+            "¿Estás segura/o? Me vas a rechazar uwu",
+            "¿De verdad me vas a decir que no potito uwu? 😭",
+            "Amor, piensalo bien uwu 🙏",
+            "me rindo uwu, ya no me kieres",
+            "¿Estás segura/o? Me vas a rechazar uwu",
+            "¿De verdad me vas a decir que no potito uwu? 😭",
+            "Amor, piensalo bien uwu 🙏",
+            "me rindo uwu, ya no me kieres",
+            "¿Estás segura/o? Me vas a rechazar uwu",
+            "¿De verdad me vas a decir que no potito uwu? 😭",
+            "Amor, piensalo bien uwu 🙏",
+            "me rindo uwu, ya no me kieres",
+            "¿Estás segura/o? Me vas a rechazar uwu",
+            "¿De verdad me vas a decir que no potito uwu? 😭",
+            "Amor, piensalo bien uwu 🙏",
+            "me rindo uwu, ya no me kieres"
+        ];
+
+        const images = [
+            //"./icons/11.jpeg", // Cambia esto a la ruta de tu primera imagen
+            "./icons/55.jpeg", // Cambia esto a la ruta de tu segunda imagen
+            "./icons/33.jpeg", // Cambia esto a la ruta de tu tercera imagen
+            "./icons/44.jpeg", // Cambia esto a la ruta de tu cuarta imagen
+            "./icons/55.jpeg", // Cambia esto a la ruta de tu segunda imagen
+            "./icons/33.jpeg", // Cambia esto a la ruta de tu tercera imagen
+            "./icons/44.jpeg", // Cambia esto a la ruta de tu cuarta imagen
+            "./icons/55.jpeg", // Cambia esto a la ruta de tu segunda imagen
+            "./icons/33.jpeg", // Cambia esto a la ruta de tu tercera imagen
+            "./icons/44.jpeg", // Cambia esto a la ruta de tu cuarta imagen
+            "./icons/55.jpeg", // Cambia esto a la ruta de tu segunda imagen
+            "./icons/33.jpeg", // Cambia esto a la ruta de tu tercera imagen
+            "./icons/44.jpeg", // Cambia esto a la ruta de tu cuarta imagen
+            "./icons/55.jpeg", // Cambia esto a la ruta de tu segunda imagen
+            "./icons/33.jpeg", // Cambia esto a la ruta de tu tercera imagen
+            "./icons/44.jpeg", // Cambia esto a la ruta de tu cuarta imagen
+            "./icons/55.jpeg", // Cambia esto a la ruta de tu segunda imagen
+            "./icons/33.jpeg", // Cambia esto a la ruta de tu tercera imagen
+            "./icons/44.jpeg", // Cambia esto a la ruta de tu cuarta imagen
+            "./icons/55.jpeg", // Cambia esto a la ruta de tu segunda imagen
+            "./icons/33.jpeg"  // Cambia esto a la ruta de tu tercera imagen
+        ];
+
+        let noAttempts = 0; // Contador de intentos de "No"
+        const maxAttempts = 20; // Número máximo de intentos permitidos
+
+        function answer(userAnswer) {
+            const questionElem = document.getElementById('finalQuestion');
+            const finalTextElem = document.getElementById('final-text');
+            const responseMessage = document.getElementById('responseMessage');
+            const responseText = document.getElementById('responseText');
+            const responseImage = document.getElementById('responseImage');
+            const noButton = document.getElementById('noButton');
+
+            if (userAnswer === 'Sí') {
+                // Va directo a Paso 4 con mensaje positivo
+                document.getElementById('step-3').classList.add('hidden');
+                document.getElementById('step-4').classList.remove('hidden');
+                finalTextElem.innerText = '¡Wiiiiiiiii, tiamooooooooooo! 💖';
+
+                // Mostrar la imagen correspondiente
+                const finalImage = document.getElementById('finalImage');
+                finalImage.src = "./icons/22.jpeg"; // Cambia esto a la ruta de tu imagen feliz
+                finalImage.alt = "¡Feliz San Valentín!"; // Texto alternativo para la imagen
+
+                noButton.disabled = true; // Deshabilitar el botón "No" al hacer clic en "Sí"
+            } else {
+                // Maneja los "No"
+                noAttempts++;
+
+                if (noAttempts <= maxAttempts) {
+                    questionElem.innerText = messages[noAttempts - 1]; // Muestra el mensaje correspondiente
+                    responseText.innerText = "¡No te preocupes! Siempre hay más oportunidades. 😊";
+                    responseImage.src = images[noAttempts - 1]; // Muestra la imagen correspondiente
+                    responseMessage.classList.remove('hidden'); // Muestra el mensaje y la imagen
+                    moveNoButton(); // Mueve el botón "No"
+                } else {
+                    // En el cuarto clic, solo mueve el botón y no hace nada más
+                    questionElem.innerText = "¿De verdad me vas a rechazar? uwu";
+                    moveNoButton(); // Mueve el botón "No"
+                    noButton.disabled = true; // Deshabilitar el botón "No" para que no se pueda hacer clic más
+                }
+            }
+        }
+
+        // Función para mover el botón "No" a una posición aleatoria
+        function moveNoButton() {
+            const noButton = document.getElementById('noButton');
+            const container = document.getElementById('step-3'); // Asegúrate de que el botón se mueva dentro de este contenedor
+
+            // Obtener dimensiones del contenedor
+            const containerRect = container.getBoundingClientRect();
+            const buttonRect = noButton.getBoundingClientRect();
+
+            // Calcular posiciones aleatorias dentro del contenedor
+            const randomX = Math.random() * (containerRect.width - buttonRect.width);
+            const randomY = Math.random() * (containerRect.height - buttonRect.height);
+
+            // Aplicar la nueva posición
+            noButton.style.position = 'absolute'; // Asegúrate de que el botón se pueda mover
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        }
+        function restart() {
+            // Reinicia a 0 los "no"
+            noAttempts = 0;
+            // Oculta step 4
+            document.getElementById('step-4').classList.add('hidden');
+            // Restaura la pregunta original
+            document.getElementById('finalQuestion').innerText = '¿Quieres ser mi San Valentín? ❤️';
+            // Vuelve al "home" (o al primer paso si prefieres)
+            document.getElementById('home').classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>
