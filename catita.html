@@ -107,7 +107,7 @@
         <!-- Fin del Home / Galería -->
 
         <!-- PASO 1 -->
-        <div id="step-1" class="hidden step active">
+        <div id="step-1" class="hidden">
             <div class="max-w-3xl mx-auto my-8 bg-pink-50 rounded-xl shadow-lg p-6 sm:p-8">
                 <!-- Título -->
                 <div class="flex items-center justify-center mb-4">
@@ -162,7 +162,7 @@
         <!-- Fin PASO 1 -->
 
         <!-- PASO 2 -->
-        <div id="step-2" class="hidden step">
+        <div id="step-2" class="hidden">
             <div class="max-w-3xl mx-auto my-8 bg-pink-50 rounded-xl shadow-lg p-6 sm:p-8">
                 <!-- Encabezado -->
                 <div class="flex items-center justify-center mb-4">
@@ -216,7 +216,7 @@
         <!-- Fin PASO 2 -->
 
         <!-- PASO 3: Pregunta final (con lógica de "No" insistente) -->
-        <div id="step-3" class="text-center space-y-4 hidden step">
+        <div id="step-3" class="text-center space-y-4 hidden">
             <h2 class="text-3xl font-bold text-pink-700 valentine-title">La Pregunta:</h2>
             <p id="finalQuestion" class="text-xl text-gray-700">
                 ¿Quieres ser mi San Valentín? ❤️
@@ -275,7 +275,7 @@
 
         <!-- PASO 4: Respuesta final (si dice "Sí" o tras varios "No") -->
         <!-- PASO 4: Respuesta final (si dice "Sí" o tras varios "No") -->
-        <div id="step-4" class="text-center space-y-4 hidden step">
+        <div id="step-4" class="text-center space-y-4 hidden">
             <h2 id="final-text" class="text-2xl font-bold text-pink-700 valentine-title"></h2>
             <img id="finalImage" class="mx-auto w-40 h-40 rounded-md shadow-lg" alt="Respuesta" />
             <button class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded"
@@ -293,17 +293,18 @@
 
         // Navegar entre secciones (steps)
         function goToStep(stepNumber) {
-            // Oculta todos los pasos
-            document.querySelectorAll('.step').forEach(el => {
-                el.classList.remove('active'); // Elimina la clase active
+            // Oculta todo (home y steps)
+            document.querySelectorAll('#home, [id^="step-"]').forEach(el => {
+                el.classList.add('hidden');
+                window.scrollTo(0, 0); // Vuelve al inicio de la página
             });
 
-            // Muestra sólo el paso correspondiente
-            const currentStep = document.getElementById(`step-${stepNumber}`);
-            currentStep.classList.add('active'); // Agrega la clase active
-
-            // Desplazarse al inicio de la página
-            window.scrollTo(0, 0); // Vuelve al inicio de la página
+            // Muestra sólo el contenedor que corresponde
+            if (stepNumber === 0) {
+                document.getElementById('home').classList.remove('hidden');
+            } else {
+                document.getElementById(`step-${stepNumber}`).classList.remove('hidden');
+            }
         }
 
         // Lógica de respuesta "Sí" / "No" en Paso 3
